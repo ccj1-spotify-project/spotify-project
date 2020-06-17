@@ -5,18 +5,24 @@ import Image from "../components/Image";
 import Jumbotron from "../components/Jumbotron";
 import Badge from "../components/Badge";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useSelector } from "react-redux";
 
 export default function () {
+  const src = useSelector((state) => state.targetArtistObj.photo);
+  const name = useSelector((state) => state.targetArtistObj.name);
+  const description = useSelector((state) => state.targetArtistObj.description);
   return (
     <Container>
       <Row>
-        <Col>1 of 1</Col>
         <Col>
-          <Badge script="Artist" />
-          <Jumbotron />
+          <PlayWidget />
         </Col>
         <Col>
-          <Image src="https://i.scdn.co/image/f88e08cf9132c7facc2ee9fbdd1be3924b5c5a74" />
+          <Badge script={name} />
+          <Jumbotron script={description} />
+        </Col>
+        <Col>
+          <Image src={src} />
         </Col>
       </Row>
     </Container>
