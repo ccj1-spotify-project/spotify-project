@@ -1,9 +1,7 @@
 import React from "react";
 import PlayWidget from "react-spotify-widgets";
 
-export default function () {
-  const uri = props.uri;
-
+export default function ({ uri }) {
   return (
     <PlayWidget
       width={300}
