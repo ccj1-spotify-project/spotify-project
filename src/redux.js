@@ -58,6 +58,16 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SET_TARGET_ARTIST":
+      return {
+        ...state,
+        targetArtistObj: action.targetArtistObj,
+      };
+    case "SET_TARGET_SONG":
+      return {
+        ...state,
+        targetSongObj: action.targetSongObj,
+      };
     default:
       return state;
   }
