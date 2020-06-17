@@ -1,7 +1,7 @@
 import React from "react";
 import PlayWidget from "react-spotify-widgets";
 
-const PlayWidget = (props) => {
+const PlayScreen = (props) => {
   const uri = props.uri;
 
   return (
@@ -15,4 +15,4 @@ const PlayWidget = (props) => {
   );
 };
 
-export default PlayWidget;
+export default PlayScreen;
