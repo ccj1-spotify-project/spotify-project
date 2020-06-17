@@ -16,7 +16,6 @@ export default function () {
       <PlayWidget uri={uri} />
       <SongInfos />
       <img src={photo} className="photo" />
-      {/* <Image src={photo} className="photo" /> */}
     </div>
   );
 }
