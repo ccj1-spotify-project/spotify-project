@@ -1,7 +1,7 @@
 const axios = require("axios");
 
-const getArtists = (token, ids) => {
-  axios({
+export const getArtists = (token, ids) => {
+  return axios({
     url: `https://api.spotify.com/v1/artists?ids=${ids}`,
     method: "get",
     headers: {
@@ -20,12 +20,12 @@ const getArtists = (token, ids) => {
         };
       });
 
-      return a;
+      return artistArray;
     });
 };
 
-const getAlbums = (token, ids) => {
-  axios({
+export const getAlbums = (token, ids) => {
+  return axios({
     url: `https://api.spotify.com/v1/albums?ids=${ids}`,
     method: "get",
     headers: {
