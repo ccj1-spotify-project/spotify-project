@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import PlayWidget from "react-spotify-widgets";
 
 export default function SongInfo() {
@@ -15,3 +16,13 @@ export default function SongInfo() {
     </div>
   );
 }
+=======
+
+import PlayWidget from "../components/PlayWidget.js";
+
+const SongInfo = () => {
+  return <div></div>;
+};
+
+export default SongInfo;
+>>>>>>> origin

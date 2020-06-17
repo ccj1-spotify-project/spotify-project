@@ -6,6 +6,10 @@ import {
   Switch,
 } from "react-router-dom";
 
+import MainPage from "./mainPage/pages/MainPage.js";
+import ArtistInfo from "./Info/pages/ArtistInfo.js";
+import SongInfo from "./Info/pages/SongInfo.js";
+
 import "./App.css";
 
 function App() {
