@@ -15,8 +15,9 @@ export const getArtists = (token, ids) => {
       const artistArray = res.artists.map((object) => {
         return {
           name: object.name,
-          imageUrl: object.images[2].url,
+          photo: object.images[2].url,
           uri: object.uri,
+          description: "still looking for the API",
         };
       });
 
@@ -39,15 +40,17 @@ export const getAlbums = (token, ids) => {
       const albumArray = res.albums.map((object) => {
         return {
           name: object.name,
-          artists: object.artists.map((artist) => {
-            return {
-              name: artist.name,
-            };
-          }),
-          release_data: object.release_date,
-          imageUrl: object.images[2].url,
+          artist: object.artists
+            .map((artist) => {
+              return {
+                name: artist.name,
+              };
+            })
+            .join(),
+          releaseData: object.release_date,
+          photo: object.images[2].url,
           uri: object.uri,
-          genres: object.genres,
+          genre: object.genres,
         };
       });
 

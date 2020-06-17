@@ -18,11 +18,14 @@ const clientSecret = "2745e4cb80ba447ea152ca4e664ff863";
 // import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
   useEffect(async () => {
     const { artistArray, albumArray } = await getInitialState(
       clientId,
       clientSecret
     );
+    const action = { type: "getState", payload: { artistArray, albumArray } };
+    dispatch(action);
   }, []);
 
   return (
