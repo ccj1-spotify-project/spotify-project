@@ -1,56 +1,22 @@
-const axios = require("axios");
+import getToken from "./getToken";
+import { getTop50 } from "./getTopArtistAlbum";
+import { getAlbums, getArtists } from "./getInitialState";
 
-export const getArtists = (token, ids) => {
-  return axios({
-    url: `https://api.spotify.com/v1/artists?ids=${ids}`,
-    method: "get",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  })
-    .then((res) => res.data)
+export default function (clientId, clientSecret) {
+  return getToken(clientId, clientSecret)
     .then((res) => {
-      const artistArray = res.artists.map((object) => {
-        return {
-          name: object.name,
-          imageUrl: object.images[2].url,
-          uri: object.uri,
-        };
-      });
-
-      return artistArray;
+      const { access_token } = res;
+      return access_token;
+    })
+    .then(async (token) => {
+      const { artistIDs, albumIDs } = await getTop50(token);
+      return { token, artistIDs, albumIDs };
+    })
+    .then(async ({ token, artistIDs, albumIDs }) => {
+      // console.log("token", token, "artistIDs", artistIDs, "albumIDs", albumIDs);
+      const artistArray = await getArtists(token, artistIDs.slice(0, 10));
+      const albumArray = await getAlbums(token, albumIDs.slice(0, 10));
+      // console.log(artistArray, albumArray);
+      return { artistArray, albumArray };
     });
-};
-
-export const getAlbums = (token, ids) => {
-  return axios({
-    url: `https://api.spotify.com/v1/albums?ids=${ids}`,
-    method: "get",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  })
-    .then((res) => res.data)
-    .then((res) => {
-      const albumArray = res.albums.map((object) => {
-        return {
-          name: object.name,
-          artists: object.artists.map((artist) => {
-            return {
-              name: artist.name,
-            };
-          }),
-          release_data: object.release_date,
-          imageUrl: object.images[2].url,
-          uri: object.uri,
-          genres: object.genres,
-        };
-      });
-
-      return albumArray;
-    });
-};
+}

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 import {
   BrowserRouter as Router,
@@ -10,43 +11,18 @@ import {
 import MainPage from "./mainPage/pages/MainPage.js";
 import ArtistInfo from "./Info/pages/ArtistInfo.js";
 import SongInfo from "./Info/pages/SongInfo.js";
-import getToken from "./fetchFunctions/getToken";
-import { getTop50 } from "./fetchFunctions/getTopArtistAlbum";
-import { getAlbums, getArtists } from "./fetchFunctions/index";
-
+import getInitialState from "./fetchFunctions";
 const clientId = "0b0433ec9c8a45c781e4960897a83658";
 const clientSecret = "2745e4cb80ba447ea152ca4e664ff863";
 
 // import "./App.css";
 
 function App() {
-  useEffect(() => {
-    getToken(clientId, clientSecret)
-      .then((res) => {
-        const { access_token } = res;
-        return access_token;
-      })
-      .then(async (token) => {
-        const { artistIDs, albumIDs } = await getTop50(token);
-        return { token, artistIDs, albumIDs };
-      })
-      .then(async ({ token, artistIDs, albumIDs }) => {
-        console.log(
-          "token",
-          token,
-          "artistIDs",
-          artistIDs,
-          "albumIDs",
-          albumIDs
-        );
-        const artistArray = await getArtists(token, artistIDs);
-        const albumArray = await getAlbums(token, albumIDs);
-        console.log(artistArray, albumArray);
-        // return { artistArray, albumArray };
-      });
-    // .then(({ artistArray, albumArray }) => {
-    //   console.log(artistArray, albumArray);
-    // });
+  useEffect(async () => {
+    const { artistArray, albumArray } = await getInitialState(
+      clientId,
+      clientSecret
+    );
   }, []);
 
   return (
