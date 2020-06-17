@@ -1,28 +1,13 @@
 import React from "react";
-<<<<<<< HEAD
 import PlayWidget from "react-spotify-widgets";
+import SongInfos from "../components/SongInfos";
 
-export default function SongInfo() {
+export default function () {
+  const uri = "spotify:artist:66CXWjxzNUsdJxJ2JdwvnR";
   return (
     <div className="information">
-      <PlayWidget
-        width={300}
-        height={380}
-        uri={"spotify:artist:66CXWjxzNUsdJxJ2JdwvnR"}
-        lightTheme={true}
-        viewCoverArt={true}
-      />
-      {/* <SongInfos /> */}
+      <PlayWidget uri={uri} />
+      <SongInfos />
     </div>
   );
 }
-=======
-
-import PlayWidget from "../components/PlayWidget.js";
-
-const SongInfo = () => {
-  return <div></div>;
-};
-
-export default SongInfo;
->>>>>>> origin
