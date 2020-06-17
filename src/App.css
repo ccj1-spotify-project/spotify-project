@@ -38,5 +38,8 @@
 }
 
 #title {
+  font-size: 80px;
+  font-family: Impact, Charcoal;
   text-align: center;
+  margin: 10px;
 }
