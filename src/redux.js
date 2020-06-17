@@ -58,6 +58,13 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case "getState":
+      return {
+        ...state,
+        artistObjs: action.payload.artistArray,
+        songObjs: action.payload.albumArray,
+      };
+
     default:
       return state;
   }
