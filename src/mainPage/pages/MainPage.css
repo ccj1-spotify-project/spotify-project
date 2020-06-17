@@ -12,8 +12,17 @@ img {
   width: 250px;
   height: 225px;
   margin: 15px;
+  transition: 1s;
 }
 
-.song_container {
+img:hover {
+  transform: scale(1.2);
+}
+
+.artist_img_container {
+  margin-top: 30px;
+}
+
+.song_img_container {
   margin-top: 30px;
 }
