@@ -11,11 +11,12 @@ export default function () {
   const src = useSelector((state) => state.targetArtistObj.photo);
   const name = useSelector((state) => state.targetArtistObj.name);
   const description = useSelector((state) => state.targetArtistObj.description);
+  const uri = useSelector((state) => state.targetArtistObj.uri);
   return (
     <Container>
       <Row>
         <Col>
-          <PlayWidget />
+          <PlayWidget uri={uri} />
         </Col>
         <Col>
           <Badge script={name} />
