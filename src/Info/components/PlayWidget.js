@@ -1,7 +1,7 @@
 import React from "react";
 import PlayWidget from "react-spotify-widgets";
 
-const PlayScreen = (props) => {
+export default function () {
   const uri = props.uri;
 
   return (
@@ -13,6 +13,8 @@ const PlayScreen = (props) => {
       viewCoverArt={true}
     />
   );
-};
+}
 
-export default PlayScreen;
+//<PlayWidget uri={XXX}>
+//XXXに取得したuriを入れていただくとPlayWidgetが表示できます
+//https://github.com/Ben-Wu/react-spotify-widgets#readme
