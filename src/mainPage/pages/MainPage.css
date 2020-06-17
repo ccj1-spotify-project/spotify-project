@@ -1,4 +1,19 @@
+.main-page {
+  margin-top: 30px;
+}
+h2 {
+  margin: 15px;
+  padding: 15px;
+  color: white;
+  background-color: #00dd00;
+}
+
 img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 225px;
+  margin: 15px;
+}
+
+.song_container {
+  margin-top: 30px;
 }
