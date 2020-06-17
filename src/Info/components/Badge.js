@@ -10,5 +10,5 @@ export default function ({ script }) {
 }
 
 // <Badge script = 'xxx' />
-// でxxxのバッジとして使うことができます!
+// でxxxのバッジとして使うことができます!!
 // https://react-bootstrap.github.io/components/badge/
