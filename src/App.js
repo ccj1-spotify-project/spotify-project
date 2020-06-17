@@ -10,12 +10,14 @@ import {
 import MainPage from "./mainPage/pages/MainPage.js";
 import ArtistInfo from "./Info/pages/ArtistInfo.js";
 import SongInfo from "./Info/pages/SongInfo.js";
+import Navbar from "./Navbar";
 
 import "./App.css";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <main>
         <Switch>
           <Route path="/" exact>
