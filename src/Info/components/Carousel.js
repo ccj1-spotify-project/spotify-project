@@ -4,10 +4,9 @@ import { useSelector } from "react-redux";
 
 export default function () {
   const playList = useSelector((state) => state.playlist);
-  const changePlaylist = () => {};
   return (
     <Carousel>
-      <Carousel.Item onClick={changePlaylist}>
+      <Carousel.Item>
         <img
           className="d-block w-100"
           src="holder.js/800x400?text=First slide&bg=373940"
