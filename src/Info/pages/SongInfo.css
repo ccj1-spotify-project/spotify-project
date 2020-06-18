@@ -1,20 +1,49 @@
+.information {
+  margin-left: 20%;
+  margin-right: 10%;
+  position: relative;
+}
+
 .info {
   display: inline-block;
+  padding: 20px;
+  color: #fff;
+}
+
+.description {
+  display: inline-block;
+  position: absolute;
   padding: 10px;
+  color: #fff;
 }
 
 .photo {
   position: absolute;
+  right: 30px;
   top: 15px;
   padding: 0.25rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
 }
 
-.information {
-  margin-left: 20%;
-  position: relative;
+@media screen and (max-width: 480px) {
+  .info {
+    display: inline;
+    text-align: center;
+  }
+  .information {
+    margin: auto;
+    text-align: center;
+  }
+  .photo {
+    display: none;
+  }
+  .description {
+    position: relative;
+    margin: auto;
+    text-align: center;
+  }
 }
