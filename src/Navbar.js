@@ -19,7 +19,7 @@ export default function () {
           });
         }}
       >
-        Title
+        Hooked
       </h1>
       <Link to="/" id="back_home" ref={backHome}></Link>
       <Carousel />
