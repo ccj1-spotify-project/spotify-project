@@ -25,8 +25,8 @@ const MainPage = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2,
-      slidesToSlide: 2,
+      items: 1,
+      slidesToSlide: 1,
     },
   };
 
