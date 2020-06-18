@@ -25,8 +25,8 @@ const MainPage = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
+      items: 2,
+      slidesToSlide: 2,
     },
   };
 
@@ -36,18 +36,17 @@ const MainPage = () => {
         <h2>Popular Artist</h2>
         <Carousel responsive={responsive} draggable={true} swipeable={true}>
           {artistObjs.map((obj, i) => (
-            <Link to={`/artist/${i}`}>
+            <Link
+              to={`/artist/${i}`}
+              onClick={() => {
+                dispatch({
+                  type: "SET_TARGET_ARTIST",
+                  targetArtistObj: artistObjs[i],
+                });
+              }}
+            >
               <div className="container">
-                <img
-                  src={obj.photo}
-                  key={i}
-                  onClick={() => {
-                    dispatch({
-                      type: "SET_TARGET_ARTIST",
-                      targetArtistObj: artistObjs[i],
-                    });
-                  }}
-                />
+                <img src={obj.photo} key={i} />
                 <div className="overlay">
                   <div class="text">{obj.name}</div>
                 </div>
@@ -60,18 +59,17 @@ const MainPage = () => {
         <h2>Popular Song</h2>
         <Carousel responsive={responsive} swipeable={true}>
           {songObjs.map((obj, i) => (
-            <Link to={`/song/${i}`}>
+            <Link
+              to={`/song/${i}`}
+              onClick={() => {
+                dispatch({
+                  type: "SET_TARGET_SONG",
+                  targetSongObj: songObjs[i],
+                });
+              }}
+            >
               <div className="container">
-                <img
-                  src={obj.photo}
-                  key={i}
-                  onClick={() => {
-                    dispatch({
-                      type: "SET_TARGET_SONG",
-                      targetSongObj: songObjs[i],
-                    });
-                  }}
-                />
+                <img src={obj.photo} key={i} />
                 <div className="overlay">
                   <div class="text">{obj.name}</div>
                 </div>
