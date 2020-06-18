@@ -2,14 +2,14 @@ import getToken from "./getToken";
 import { getTop50 } from "./getTopArtistAlbum";
 import { getAlbums, getArtists } from "./getInitialState";
 
-export default function (clientId, clientSecret) {
+export default function (clientId, clientSecret, playlistId) {
   return getToken(clientId, clientSecret)
     .then((res) => {
       const { access_token } = res;
       return access_token;
     })
     .then(async (token) => {
-      const { artistIDs, albumIDs } = await getTop50(token);
+      const { artistIDs, albumIDs } = await getTop50(token, playlistId);
       return { token, artistIDs, albumIDs };
     })
     .then(async ({ token, artistIDs, albumIDs }) => {
