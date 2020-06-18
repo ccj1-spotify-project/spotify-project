@@ -23,14 +23,15 @@ function App() {
   const playlistId = useSelector((state) => state.playlist[0].id);
   const dispatch = useDispatch();
   useEffect(() => {
-    getInitialState(clientId, clientSecret, playlistId).then((res) => {
-      const { artistArray, albumArray, playListImages } = res;
-      const action = {
-        type: "GET_STATE",
-        payload: { artistArray, albumArray, playListImages },
-      };
-      dispatch(action);
-    });
+    getInitialState(clientId, clientSecret, playlistId).then(
+      ({ artistArray, albumArray, playListImages }) => {
+        const action = {
+          type: "GET_STATE",
+          payload: { artistArray, albumArray, playListImages },
+        };
+        dispatch(action);
+      }
+    );
   }, []);
 
   return (
