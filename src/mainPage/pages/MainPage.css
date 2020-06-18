@@ -2,6 +2,7 @@
   margin-top: 30px;
 }
 h2 {
+  font-size: large;
   margin: 15px;
   padding: 15px;
   color: white;
@@ -25,4 +26,15 @@ img:hover {
 
 .song_img_container {
   margin-top: 30px;
+}
+
+@media screen and (max-width: 480px) {
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  /* h2 {
+    font-size: 15px;
+    padding: 10px;
+  } */
 }
