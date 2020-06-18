@@ -2,6 +2,7 @@ import React from "react";
 import { createStore } from "redux";
 
 const initialState = {
+  playlistId: "37i9dQZEVXbMDoHDwVN2tF",
   artistObjs: [
     {
       name: "xx",
@@ -68,8 +69,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         targetSongObj: action.targetSongObj,
       };
-
-    case "getState":
+    case "GET_STATE":
       return {
         ...state,
         artistObjs: action.payload.artistArray,

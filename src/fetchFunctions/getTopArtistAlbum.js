@@ -1,7 +1,6 @@
 //top50 playlistからaritstID, albumID を持ってくる
-export const getTop50 = async (token) => {
+export const getTop50 = async (token, playlistId) => {
   const searchAPI = "https://api.spotify.com/v1/playlists/";
-  const playlistId = "37i9dQZEVXbMDoHDwVN2tF";
   const market = "market=US";
 
   return fetch(`${searchAPI}${playlistId}?${market}`, {
