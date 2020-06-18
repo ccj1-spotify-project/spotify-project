@@ -36,16 +36,16 @@ const MainPage = () => {
         <h2>Popular Artist</h2>
         <Carousel responsive={responsive} draggable={true} swipeable={true}>
           {artistObjs.map((obj, i) => (
-            <Link
-              to={`/artist/${i}`}
-              onClick={() => {
-                dispatch({
-                  type: "SET_TARGET_ARTIST",
-                  targetArtistObj: artistObjs[i],
-                });
-              }}
-            >
-              <div className="container">
+            <Link to={`/artist/${i}`}>
+              <div
+                className="container"
+                onClick={() => {
+                  dispatch({
+                    type: "SET_TARGET_ARTIST",
+                    targetArtistObj: artistObjs[i],
+                  });
+                }}
+              >
                 <img src={obj.photo} key={i} />
                 <div className="overlay">
                   <div class="text">{obj.name}</div>
@@ -59,16 +59,16 @@ const MainPage = () => {
         <h2>Popular Song</h2>
         <Carousel responsive={responsive} swipeable={true}>
           {songObjs.map((obj, i) => (
-            <Link
-              to={`/song/${i}`}
-              onClick={() => {
-                dispatch({
-                  type: "SET_TARGET_SONG",
-                  targetSongObj: songObjs[i],
-                });
-              }}
-            >
-              <div className="container">
+            <Link to={`/song/${i}`}>
+              <div
+                className="container"
+                onClick={() => {
+                  dispatch({
+                    type: "SET_TARGET_SONG",
+                    targetSongObj: songObjs[i],
+                  });
+                }}
+              >
                 <img src={obj.photo} key={i} />
                 <div className="overlay">
                   <div class="text">{obj.name}</div>
