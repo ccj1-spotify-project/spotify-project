@@ -2,7 +2,13 @@ import React from "react";
 import { createStore } from "redux";
 
 const initialState = {
-  playlistId: "37i9dQZEVXbMDoHDwVN2tF",
+  playlist: [
+    {
+      id: "37i9dQZEVXbMDoHDwVN2tF",
+      photo:
+        "https://images-na.ssl-images-amazon.com/images/I/513CJOJyH8L._AC_.jpg",
+    },
+  ],
   artistObjs: [
     {
       name: "xx",
