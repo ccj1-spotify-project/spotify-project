@@ -17,7 +17,7 @@ export const getArtists = (token, ids) => {
           name: object.name,
           photo: object.images[0].url,
           uri: object.uri,
-          description: "still looking for the API",
+          description: `Spotify Technology S.A. (/ˈspɒtɪfaɪ/) is a Swedish music streaming and media services provider. It is legally domiciled in Luxembourg and is headquartered in Stockholm, Sweden.[6] Founded in 2006, the company's primary business is providing an audio streaming platform, the "Spotify" platform, that provides DRM-restricted music, videos and podcasts from record labels and media companies. As a freemium service, basic features are free with advertisements or automatic music videos, while additional features, such as offline listening and commercial-free listening, are offered via paid subscriptions.`,
         };
       });
 
