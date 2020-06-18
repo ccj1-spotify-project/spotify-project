@@ -48,7 +48,7 @@ export const getAlbums = (token, ids) => {
             })
             .join(),
           releaseData: object.release_date,
-          photo: object.images[2].url,
+          photo: object.images[0].url,
           uri: object.uri,
           genre: object.genres,
         };

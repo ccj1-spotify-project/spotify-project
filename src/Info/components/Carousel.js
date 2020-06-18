@@ -3,7 +3,7 @@ import { Carousel } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 export default function () {
-  const playList = useSelector((state) => state.playListId);
+  const playList = useSelector((state) => state.playlist);
   const changePlaylist = () => {};
   return (
     <Carousel>
