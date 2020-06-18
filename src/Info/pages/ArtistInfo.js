@@ -4,7 +4,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import Image from "../components/Image";
 import Jumbotron from "../components/Jumbotron";
 import Badge from "../components/Badge";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from "react-redux";
 
 export default function () {

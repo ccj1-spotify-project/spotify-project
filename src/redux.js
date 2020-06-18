@@ -2,6 +2,13 @@ import React from "react";
 import { createStore } from "redux";
 
 const initialState = {
+  playlist: [
+    {
+      id: "37i9dQZEVXbMDoHDwVN2tF",
+      photo:
+        "https://images-na.ssl-images-amazon.com/images/I/513CJOJyH8L._AC_.jpg",
+    },
+  ],
   artistObjs: [
     {
       name: "xx",
@@ -58,7 +65,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-
     case "SET_TARGET_ARTIST":
       return {
         ...state,
@@ -69,15 +75,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         targetSongObj: action.targetSongObj,
       };
-
-    case "getState":
+    case "GET_STATE":
       return {
         ...state,
         artistObjs: action.payload.artistArray,
         songObjs: action.payload.albumArray,
       };
-
-
     default:
       return state;
   }

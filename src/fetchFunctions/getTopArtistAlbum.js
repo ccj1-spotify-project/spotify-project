@@ -1,10 +1,16 @@
-//top50 playlistからaritstID, albumID を持ってくる
-export const getTop50 = async (token) => {
-  const searchAPI = "https://api.spotify.com/v1/playlists/";
-  const playlistId = "37i9dQZEVXbMDoHDwVN2tF";
-  const market = "market=US";
 
-  return fetch(`${searchAPI}${playlistId}?${market}`, {
+//引数で指定したplaylistからplayListImage, aritstID, albumID, trackID を持ってくる
+
+export const getTop50 = async (token, playListId) => {
+  const searchAPI = "https://api.spotify.com/v1/playlists/";
+  const globalTop50ID = "37i9dQZEVXbMDoHDwVN2tF";
+
+  if (playListId === undefined) {
+    playListId = globalTop50ID;
+  }
+
+
+  return fetch(`${searchAPI}${playListId}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -14,21 +20,22 @@ export const getTop50 = async (token) => {
   })
     .then((res) => res.json())
     .then((res) => {
+      const playListImages = res.images.map((image) => image.url);
+
       const artists = res.tracks.items.map((item) =>
         item.track.artists.map((artist) => artist.id)
       );
-
       let artistIDs = [];
-
       for (const id of artists) {
         artistIDs = artistIDs.concat(id);
       }
-
       artistIDs = Array.from(new Set(artistIDs));
 
       let albumIDs = res.tracks.items.map((item) => item.track.album.id);
       albumIDs = Array.from(new Set(albumIDs));
 
-      return { artistIDs, albumIDs };
+      const trackIDs = res.tracks.items.map((item) => item.track.id);
+
+      return { playListImages, artistIDs, albumIDs, trackIDs };
     });
 };
