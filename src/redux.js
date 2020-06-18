@@ -75,14 +75,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         targetSongObj: action.targetSongObj,
       };
-
     case "GET_STATE":
       return {
         ...state,
         artistObjs: action.payload.artistArray,
         songObjs: action.payload.albumArray,
       };
-
     default:
       return state;
   }
