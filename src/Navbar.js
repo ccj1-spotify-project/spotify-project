@@ -13,7 +13,7 @@ export default function () {
           backHome.current.click();
         }}
       >
-        Title
+        Hooked
       </h1>
       <Link to="/" id="back_home" ref={backHome}></Link>
       <Carousel />
