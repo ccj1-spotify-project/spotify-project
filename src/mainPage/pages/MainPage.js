@@ -12,37 +12,47 @@ const MainPage = () => {
 
   return (
     <div className="main-page">
+      <h2>Popular Artist</h2>
       <div className="artist_container">
-        <h2>Popular Artist</h2>
         {artistObjs.map((obj, i) => (
           <Link to={`/artist/${i}`}>
-            <img
-              src={obj.photo}
-              key={i}
-              onClick={() => {
-                dispatch({
-                  type: "SET_TARGET_ARTIST",
-                  targetArtistObj: artistObjs[i],
-                });
-              }}
-            />
+            <div className="container">
+              <img
+                src={obj.photo}
+                key={i}
+                onClick={() => {
+                  dispatch({
+                    type: "SET_TARGET_ARTIST",
+                    targetArtistObj: artistObjs[i],
+                  });
+                }}
+              />
+              <div className="overlay">
+                <div class="text">{obj.name}</div>
+              </div>
+            </div>
           </Link>
         ))}
       </div>
-      <div className="song_container">
-        <h2>Popular Song</h2>
+      <h2>Popular Song</h2>
+      <div className="song_container slides">
         {songObjs.map((obj, i) => (
           <Link to={`/song/${i}`}>
-            <img
-              src={obj.photo}
-              key={i}
-              onClick={() => {
-                dispatch({
-                  type: "SET_TARGET_SONG",
-                  targetSongObj: songObjs[i],
-                });
-              }}
-            />
+            <div className="container">
+              <img
+                src={obj.photo}
+                key={i}
+                onClick={() => {
+                  dispatch({
+                    type: "SET_TARGET_SONG",
+                    targetSongObj: songObjs[i],
+                  });
+                }}
+              />
+              <div className="overlay">
+                <div class="text">{obj.name}</div>
+              </div>
+            </div>
           </Link>
         ))}
       </div>
