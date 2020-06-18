@@ -58,6 +58,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+
     case "SET_TARGET_ARTIST":
       return {
         ...state,
@@ -68,6 +69,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         targetSongObj: action.targetSongObj,
       };
+
+    case "getState":
+      return {
+        ...state,
+        artistObjs: action.payload.artistArray,
+        songObjs: action.payload.albumArray,
+      };
+
+
     default:
       return state;
   }
