@@ -51,7 +51,7 @@ export const getAlbums = (token, ids) => {
           releasedDate: object.release_date,
           photo: object.images[0].url,
           uri: object.uri,
-          genre: object.genres.lenght === 0 ? "None" : object.genres,
+          genre: object.genres.lenght === 0 ? "None" : object.genres.join(),
         };
       });
 
