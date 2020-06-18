@@ -20,7 +20,7 @@ const clientId = "0b0433ec9c8a45c781e4960897a83658";
 const clientSecret = "2745e4cb80ba447ea152ca4e664ff863";
 
 function App() {
-  const playlistId = useSelector((state) => state.playList.id);
+  const playlistId = useSelector((state) => state.playList);
   const dispatch = useDispatch();
   useEffect(() => {
     getInitialState(clientId, clientSecret, playlistId).then(
@@ -32,7 +32,7 @@ function App() {
         dispatch(action);
       }
     );
-  }, []);
+  });
 
   return (
     <Router>

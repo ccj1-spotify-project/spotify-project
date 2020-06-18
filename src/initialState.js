@@ -1,9 +1,5 @@
 export default {
-  playList: {
-    name: "Global",
-    id: "37i9dQZEVXbMDoHDwVN2tF",
-    photo: "https://charts-images.scdn.co/REGIONAL_GLOBAL_DEFAULT.jpg",
-  },
+  playList: "37i9dQZEVXbMDoHDwVN2tF",
 
   playLists: [
     {
