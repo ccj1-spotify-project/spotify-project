@@ -18,7 +18,6 @@ const initialState = {
       id: "37i9dQZF1DWTJ7xPn4vNaz",
       photo: "https://i.scdn.co/image/ab67706f0000000235f14aa06ead56827f3dfd94",
     },
-    { name: "1980", id: "37i9dQZF1DX4UtSsGT1Sbe", photo: "" },
     {
       name: "1990",
       id: "37i9dQZF1DXbTxeAdrVG2l",
@@ -49,7 +48,6 @@ const initialState = {
       id: "37i9dQZEVXbKj23U1GF4IR",
       photo: "https://charts-images.scdn.co/REGIONAL_CA_DEFAULT.jpg",
     },
-    { name: "France", id: "37i9dQZEVXbIPWwFssbupI", photo: "" },
     {
       name: "Germany",
       id: "37i9dQZEVXbJiZcmkrIHGU",
@@ -70,7 +68,7 @@ const initialState = {
       id: "37i9dQZEVXbM8SIrkERIYl",
       photo: "https://charts-images.scdn.co/REGIONAL_NZ_DEFAULT.jpg",
     },
-    { name: "Philippines", id: "37i9dQZEVXbNBz9cRCSFkY", photo: "" },
+
     {
       name: "Spain",
       id: "37i9dQZEVXbNFJfN1Vw8d9",
