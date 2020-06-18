@@ -1,4 +1,4 @@
-//引数で指定したplaylistからplayListImage, aritstID, albumID, trackID を持ってくる
+//top50 playlistからaritstID, albumID を持ってくる
 
 export const getTop50 = async (token, playListId) => {
   const searchAPI = "https://api.spotify.com/v1/playlists/";
@@ -18,7 +18,7 @@ export const getTop50 = async (token, playListId) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      const playListImages = res.images.map((image) => image.url);
+      const playListImage = res.images.map((image) => image.url);
 
       const artists = res.tracks.items.map((item) =>
         item.track.artists.map((artist) => artist.id)
@@ -34,6 +34,6 @@ export const getTop50 = async (token, playListId) => {
 
       const trackIDs = res.tracks.items.map((item) => item.track.id);
 
-      return { playListImages, artistIDs, albumIDs, trackIDs };
+      return { playListImage, artistIDs, albumIDs, trackIDs };
     });
 };
