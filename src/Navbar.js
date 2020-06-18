@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import Carousel from "./Info/components/Carousel";
 
 export default function () {
   const backHome = useRef(null);
@@ -15,6 +16,7 @@ export default function () {
         Title
       </h1>
       <Link to="/" id="back_home" ref={backHome}></Link>
+      <Carousel />
     </>
   );
 }

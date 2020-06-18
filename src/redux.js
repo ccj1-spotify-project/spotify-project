@@ -20,6 +20,11 @@ const reducer = (state = initialState, action) => {
         artistObjs: action.payload.artistArray,
         songObjs: action.payload.albumArray,
       };
+    case "CHANGE_PLAYLIST":
+      return {
+        ...state,
+        playList: action.playList,
+      };
     default:
       return state;
   }
