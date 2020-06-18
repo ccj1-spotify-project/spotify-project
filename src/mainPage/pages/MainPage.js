@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -14,13 +15,35 @@ const MainPage = () => {
       <div className="artist_container">
         <h2>Popular Artist</h2>
         {artistObjs.map((obj, i) => (
-          <img src={obj.photo} key={i} />
+          <Link to={`/artist/${i}`}>
+            <img
+              src={obj.photo}
+              key={i}
+              onClick={() => {
+                dispatch({
+                  type: "SET_TARGET_ARTIST",
+                  targetArtistObj: artistObjs[i],
+                });
+              }}
+            />
+          </Link>
         ))}
       </div>
       <div className="song_container">
         <h2>Popular Song</h2>
         {songObjs.map((obj, i) => (
-          <img src={obj.photo} key={i} />
+          <Link to={`/song/${i}`}>
+            <img
+              src={obj.photo}
+              key={i}
+              onClick={() => {
+                dispatch({
+                  type: "SET_TARGET_SONG",
+                  targetSongObj: songObjs[i],
+                });
+              }}
+            />
+          </Link>
         ))}
       </div>
     </div>
