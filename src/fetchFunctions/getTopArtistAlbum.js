@@ -1,4 +1,3 @@
-
 //引数で指定したplaylistからplayListImage, aritstID, albumID, trackID を持ってくる
 
 export const getTop50 = async (token, playListId) => {
@@ -8,7 +7,6 @@ export const getTop50 = async (token, playListId) => {
   if (playListId === undefined) {
     playListId = globalTop50ID;
   }
-
 
   return fetch(`${searchAPI}${playListId}`, {
     method: "GET",

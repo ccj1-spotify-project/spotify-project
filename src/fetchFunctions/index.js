@@ -19,5 +19,6 @@ export default function (clientId, clientSecret, playlistId) {
       const artistArray = await getArtists(token, artistIDs.slice(3, 23));
       const albumArray = await getAlbums(token, albumIDs.slice(3, 23));
       return { artistArray, albumArray, playListImages };
+
     });
 }
