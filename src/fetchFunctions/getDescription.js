@@ -18,7 +18,9 @@ export const getDescription = (artistID) => {
         .innerHTML;
 
       primary = primary.replace('<span dir="auto">', "").replace("</span>", "");
-      secondary = secondary.replace('<span dir="auto">').replace("</span>", "");
+      secondary = secondary
+        .replace('<span dir="auto">', "")
+        .replace("</span>", "");
 
       return primary.concat(secondary);
     });
