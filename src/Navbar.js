@@ -42,9 +42,7 @@ export default function () {
                     alt={playList.id}
                     key={playList.id}
                   />
-                  <Carousel.Caption>
-                    <h3>{playList.name}</h3>
-                  </Carousel.Caption>
+                  <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
               );
             })}
