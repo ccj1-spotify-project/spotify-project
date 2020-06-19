@@ -15,9 +15,9 @@ export const getArtists = (token, ids) => {
       const artistArray = res.artists.map((object) => {
         return {
           name: object.name,
-          photo: object.images[2].url,
+          photo: object.images[0].url,
           uri: object.uri,
-          description: "still looking for the API",
+          description: `イギリスの女性シンガーソングライター・ファッションモデル。両親はコソボ出身のアルバニア人で、彼女の名前"Dua"はアルバニア語で『愛』を表している.`,
         };
       });
 
@@ -46,11 +46,12 @@ export const getAlbums = (token, ids) => {
                 name: artist.name,
               };
             })
+            .map((obj) => obj.name)
             .join(),
-          releaseData: object.release_date,
-          photo: object.images[2].url,
+          releasedDate: object.release_date,
+          photo: object.images[0].url,
           uri: object.uri,
-          genre: object.genres,
+          genre: object.genres.lenght === 0 ? "None" : object.genres.join(),
         };
       });
 

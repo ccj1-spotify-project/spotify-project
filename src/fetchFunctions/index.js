@@ -9,15 +9,16 @@ export default function (clientId, clientSecret, playlistId) {
       return access_token;
     })
     .then(async (token) => {
-      const { artistIDs, albumIDs } = await getTop50(token, playlistId);
-      return { token, artistIDs, albumIDs };
+      const { playListImages, artistIDs, albumIDs, trackIDs } = await getTop50(
+        token,
+        playlistId
+      );
+      return { token, artistIDs, albumIDs, playListImages, trackIDs };
     })
-    .then(async ({ token, artistIDs, albumIDs }) => {
-      // console.log("token", token, "artistIDs", artistIDs, "albumIDs", albumIDs);
-      const artistArray = await getArtists(token, artistIDs.slice(0, 20));
+    .then(async ({ token, artistIDs, albumIDs, playListImages, trackIDs }) => {
+      const artistArray = await getArtists(token, artistIDs.slice(3, 23));
+      const albumArray = await getAlbums(token, albumIDs.slice(3, 23));
+      return { artistArray, albumArray, playListImages };
 
-      const albumArray = await getAlbums(token, albumIDs.slice(0, 20));
-
-      return { artistArray, albumArray };
     });
 }
