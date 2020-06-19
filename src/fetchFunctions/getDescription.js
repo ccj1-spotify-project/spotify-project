@@ -1,22 +1,28 @@
-export const getDescription = (artistID) => {
+const nodeFetch = require("node-fetch");
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
+const getDescription = (artistID) => {
   if (artistID === undefined || artistID.lenght === 0) {
     return new Error("Please input artist ID");
   }
 
   const targetURL = `https://open.spotify.com/artist/${artistID}/about`;
 
-  return fetch(targetURL)
+  return nodeFetch(targetURL)
     .then((res) => res.text())
     .then((res) => {
-      const artistRawDom = new DOMParser().parseFromString(res, "text/html");
+      const dom = new JSDOM(res);
+      let primary = dom.window.document.querySelector(".bio-primary").innerHTML;
+      let secondary = dom.window.document.querySelector(".bio-secondary")
+        .innerHTML;
 
-      const descriptions = artistRawDom.getElementsByClassName(
-        "ArtistAbout__paragraph"
-      );
+      primary = primary.replace('<span dir="auto">', "").replace("</span>", "");
+      secondary = secondary.replace('<span dir="auto">').replace("</span>", "");
 
-      const artistDescription = Array.from(descriptions).map(
-        (desc) => desc.innerText
-      );
-      return artistDescription.join("");
+      return primary.concat(secondary);
     });
 };
+
+const id = "0W2x7650Lt2CEIIcLHXmsE";
+console.log(getDescription(id));
