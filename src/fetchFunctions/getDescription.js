@@ -2,7 +2,7 @@ const nodeFetch = require("node-fetch");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const getDescription = (artistID) => {
+export const getDescription = (artistID) => {
   if (artistID === undefined || artistID.lenght === 0) {
     return new Error("Please input artist ID");
   }
@@ -23,6 +23,3 @@ const getDescription = (artistID) => {
       return primary.concat(secondary);
     });
 };
-
-const id = "0W2x7650Lt2CEIIcLHXmsE";
-console.log(getDescription(id));
