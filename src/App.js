@@ -14,6 +14,8 @@ import ArtistInfo from "./Info/pages/ArtistInfo.js";
 import SongInfo from "./Info/pages/SongInfo.js";
 import getInitialState from "./fetchFunctions";
 import Navbar from "./Navbar";
+// import Carousel from "./Navbar";
+
 import "./App.css";
 
 const clientId = "0b0433ec9c8a45c781e4960897a83658";
