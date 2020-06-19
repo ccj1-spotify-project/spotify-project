@@ -15,8 +15,9 @@ export default function (clientId, clientSecret, playlistId) {
     .then(async ({ token, artistIDs, albumIDs }) => {
       // console.log("token", token, "artistIDs", artistIDs, "albumIDs", albumIDs);
       const artistArray = await getArtists(token, artistIDs.slice(0, 20));
+
       const albumArray = await getAlbums(token, albumIDs.slice(0, 20));
-      // console.log(artistArray, albumArray);
+
       return { artistArray, albumArray };
     });
 }

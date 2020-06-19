@@ -16,6 +16,7 @@ export default function (id, secret) {
 
   return axios(opt).then((res) => {
     const token = res.data;
+    console.log(token);
     return token;
   });
 }
