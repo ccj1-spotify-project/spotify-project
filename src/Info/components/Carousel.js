@@ -13,7 +13,7 @@ export default function () {
     <Container>
       <Row>
         <Col></Col>
-        <Col xs={6}>
+        <Col xs={5}>
           <Carousel>
             {playLists.map((playList) => {
               return (
