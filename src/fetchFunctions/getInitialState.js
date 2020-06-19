@@ -17,7 +17,10 @@ export const getArtists = (token, ids) => {
           name: object.name,
           photo: object.images[0].url,
           uri: object.uri,
-          description: `イギリスの女性シンガーソングライター・ファッションモデル。両親はコソボ出身のアルバニア人で、彼女の名前"Dua"はアルバニア語で『愛』を表している.`,
+          description:
+            object.name === "デュア・リパ" || object.name === "Dua Lipa"
+              ? `イギリスの女性シンガーソングライター・ファッションモデル。両親はコソボ出身のアルバニア人で、彼女の名前"Dua"はアルバニア語で『愛』を表している.`
+              : "現在実装中です",
         };
       });
 
