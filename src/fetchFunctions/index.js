@@ -26,6 +26,7 @@ export default function (clientId, clientSecret, playlistId) {
         descriptionArray,
       };
     })
+
     .then(
       async ({
         token,
@@ -42,4 +43,5 @@ export default function (clientId, clientSecret, playlistId) {
         return { artistArray, albumArray, playListImages, descriptionArray };
       }
     );
+
 }
