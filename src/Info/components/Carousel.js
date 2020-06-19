@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function () {
@@ -10,23 +10,31 @@ export default function () {
     dispatch(action);
   };
   return (
-    <Carousel>
-      {playLists.map((playList) => {
-        return (
-          <Carousel.Item>
-            <img
-              onClick={changePlayList}
-              className="d-block w-100"
-              src={playList.photo}
-              alt={playList.id}
-              key={playList.id}
-            />
-            <Carousel.Caption>
-              <h3>{playList.name}</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        );
-      })}
-    </Carousel>
+    <Container>
+      <Row>
+        <Col></Col>
+        <Col xs={6}>
+          <Carousel>
+            {playLists.map((playList) => {
+              return (
+                <Carousel.Item>
+                  <img
+                    onClick={changePlayList}
+                    className="d-block w-100"
+                    src={playList.photo}
+                    alt={playList.id}
+                    key={playList.id}
+                  />
+                  <Carousel.Caption>
+                    <h3>{playList.name}</h3>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
   );
 }
