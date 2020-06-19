@@ -13,6 +13,7 @@
 .description {
   display: inline-block;
   position: absolute;
+  width: 330px;
   padding: 10px;
   color: #fff;
 }
